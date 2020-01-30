@@ -22,20 +22,20 @@ func TestConfig_String(t *testing.T) {
 			name: "base",
 			config: postgres.Config{
 				DBName:                  "postgres",
-				User:                    "root",
+				User:                    "postgres",
 				Password:                "hunter2",
 				Host:                    "localhost",
 				Port:                    5432,
 				SSLMode:                 "disable",
 				FallbackApplicationName: "an-application",
 			},
-			expectedString: "dbname=postgres user=root password=hunter2 host=localhost port=5432 fallback_application_name=an-application",
+			expectedString: "dbname=postgres user=postgres password=hunter2 host=localhost port=5432 fallback_application_name=an-application",
 		},
 		{
 			name: "SSL",
 			config: postgres.Config{
 				DBName:                  "postgres",
-				User:                    "root",
+				User:                    "postgres",
 				Password:                "hunter2",
 				Host:                    "localhost",
 				Port:                    5432,
@@ -47,7 +47,7 @@ func TestConfig_String(t *testing.T) {
 				SSLRootCert:             "baz.pem",
 			},
 			// nolint: lll
-			expectedString: "dbname=postgres user=root password=hunter2 host=localhost port=5432 fallback_application_name=an-application connect_timeout=20 sslmode=require sslcert=foo.pem sslkey=bar.pem parameters=baz.pem",
+			expectedString: "dbname=postgres user=postgres password=hunter2 host=localhost port=5432 fallback_application_name=an-application connect_timeout=20 sslmode=require sslcert=foo.pem sslkey=bar.pem parameters=baz.pem",
 		},
 	}
 	for _, test := range tests {
@@ -70,7 +70,7 @@ func TestNewConfig(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expectedString := "dbname=postgres user=root host=localhost port=5432 sslmode=disable"
+	expectedString := "dbname=postgres user=postgres host=localhost port=5432 sslmode=disable"
 	pgCfg := postgres.NewConfig(cfg)
 	if pgCfg.String() != expectedString {
 		t.Fatalf("expected string to be (%s), got (%s)", expectedString, pgCfg)
@@ -96,7 +96,7 @@ func TestNew(t *testing.T) {
 func TestNewFails(t *testing.T) {
 	cfg := postgres.Config{
 		DBName:                  "postgres",
-		User:                    "root",
+		User:                    "postgres",
 		Host:                    "localhost",
 		Port:                    5432,
 		SSLMode:                 "require",
