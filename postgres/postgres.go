@@ -17,7 +17,7 @@ import (
 var Service = dependency.Service{
 	ConfigFunc: func(set dependency.FlagSet) {
 		set.String("postgres-dbname", "postgres", "The name of the database to connect to")
-		set.String("postgres-user", "root", "The name of the user to connect to the postgres db with")
+		set.String("postgres-user", "postgres", "The name of the user to connect to the postgres db with")
 		set.String("postgres-password", "", "The password to connect to the postgres database")
 		set.String("postgres-host", "localhost", "The host to connect to the postgres database on")
 		set.Int("postgres-port", 5432, "The port to connect to the postgres database on")
