@@ -9,6 +9,12 @@ import (
 
 // Service adds the ability to use the *http.Client type to the dependency injection container
 var Service = dependency.Service{
+	Dependencies: fx.Provide(
+		fx.Annotated{
+			Group:  "trippers",
+			Target: NewStatusCheckingTripper,
+		},
+	),
 	Name:        "httpclient",
 	Constructor: New,
 }
