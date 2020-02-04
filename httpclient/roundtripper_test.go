@@ -41,11 +41,19 @@ func TestStatusCheckingTripper_RoundTripFails(t *testing.T) {
 			Proto:      "https",
 		}, nil
 	}))
-	req := httptest.NewRequest(http.MethodGet, "https://example.com", http.NoBody)
-	resp, err := roundTripper.RoundTrip(req)
+	req, err := http.NewRequest(http.MethodGet, "https://example.com", http.NoBody)
+	if err != nil {
+		t.Fatal(err)
+	}
+	client := http.DefaultClient
+	client.Transport = roundTripper
+	resp, err := client.Do(req)
 	if err == nil {
 		_ = resp.Body.Close()
 		t.Fatal("expected an error got none")
+	}
+	if !errors.Is(err, httpclient.ErrStatusCode) {
+		t.Fatalf("expected error to be a status code error (%s)", err)
 	}
 }
 
