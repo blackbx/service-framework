@@ -10,6 +10,9 @@ var (
 	// ErrStatusCode is a sentinel error for detecting if the request has
 	// been rejected because of a non-acceptable status code
 	ErrStatusCode = errors.New("the status code returned is not acceptable for the request method")
+
+	// ErrServerError is the error that is returned when the server is returning a server error
+	ErrServerError = errors.New("the server is returning a server error")
 )
 
 // AllowableStatusCodes is a map of the allowable status codes for a specific request method
@@ -63,10 +66,19 @@ func (s StatusCheckingTripper) RoundTrip(request *http.Request) (*http.Response,
 	if _, ok := allowableCodes[status]; !ok {
 		return response, fmt.Errorf(
 			"(%w) (%s), is not an acceptable status for method (%s)",
-			ErrStatusCode,
+			handleBadStatusCode(response.StatusCode),
 			status,
 			request.Method,
 		)
 	}
 	return response, nil
+}
+
+func handleBadStatusCode(status int) error {
+	switch {
+	case status >= http.StatusInternalServerError:
+		return ErrServerError
+	default:
+		return ErrStatusCode
+	}
 }

@@ -91,3 +91,4 @@ issues:
       linters:
         - gomnd
         - scopelint
+        - dupl
