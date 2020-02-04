@@ -1,8 +1,15 @@
 package httpclient
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
+)
+
+var (
+	// ErrStatusCode is a sentinel error for detecting if the request has
+	// been rejected because of a non-acceptable status code
+	ErrStatusCode = errors.New("the status code returned is not acceptable for the request method")
 )
 
 // AllowableStatusCodes is a map of the allowable status codes for a specific request method
@@ -54,7 +61,12 @@ func (s StatusCheckingTripper) RoundTrip(request *http.Request) (*http.Response,
 	}
 	status := StatusCode(response.StatusCode)
 	if _, ok := allowableCodes[status]; !ok {
-		return response, fmt.Errorf("(%s), is not an acceptable status for method (%s)", status, request.Method)
+		return response, fmt.Errorf(
+			"(%w) (%s), is not an acceptable status for method (%s)",
+			ErrStatusCode,
+			status,
+			request.Method,
+		)
 	}
 	return response, nil
 }
