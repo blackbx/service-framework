@@ -36,9 +36,11 @@ type Params struct {
 
 // New creates a new instance of an *http.Client
 func New(params Params) *http.Client {
-	client := http.DefaultClient
+	transport := http.DefaultTransport
 	for _, tripper := range params.Trippers {
-		client.Transport = tripper(client.Transport)
+		transport = tripper(transport)
 	}
+	client := http.DefaultClient
+	client.Transport = transport
 	return client
 }
