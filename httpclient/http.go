@@ -11,8 +11,12 @@ import (
 var Service = dependency.Service{
 	Dependencies: fx.Provide(
 		fx.Annotated{
-			Group:  "trippers",
-			Target: NewStatusCheckingTripper,
+			Group: "trippers",
+			Target: func() Tripper {
+				return func(tripper http.RoundTripper) http.RoundTripper {
+					return NewStatusCheckingTripper(tripper)
+				}
+			},
 		},
 	),
 	Name:        "httpclient",
