@@ -31,10 +31,14 @@ var Service = dependency.Service{
 }
 
 // NewApp will create a new instance of the *newrelic.Application
-func NewApp(config dependency.ConfigGetter, logger *zap.Logger) (*newrelic.Application, error) {
+func NewApp(config dependency.ConfigGetter, logger *zap.Logger) (app *newrelic.Application, err error) {
+	key := config.GetString("newrelic-license-key")
+	if key == "" {
+		return app, nil
+	}
 	return newrelic.NewApplication(
 		newrelic.ConfigAppName(config.GetString("newrelic-app-name")),
-		newrelic.ConfigLicense(config.GetString("newrelic-license-key")),
+		newrelic.ConfigLicense(key),
 		newrelic.ConfigDistributedTracerEnabled(config.GetBool("newrelic-distributed-tracer-enabled")),
 		nrzap.ConfigLogger(logger),
 	)
