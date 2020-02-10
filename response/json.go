@@ -15,11 +15,13 @@ type JSONEncoder interface {
 // NewJSONResponder creates a new instance of the JSONResponder type
 // for the given request
 func NewJSONResponder(logger *zap.Logger, rw http.ResponseWriter, r *http.Request) Responder {
+	encoder := json.NewEncoder(rw)
+	encoder.SetEscapeHTML(false)
 	return JSONResponder{
 		logger:         logger,
 		responseWriter: rw,
 		request:        r,
-		Encoder:        json.NewEncoder(rw),
+		Encoder:        encoder,
 	}
 }
 
