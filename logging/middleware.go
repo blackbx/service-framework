@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/BlackBX/service-framework/dependency"
+
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
 )
@@ -31,7 +33,7 @@ func (l *ResponseLogger) WriteHeader(statusCode int) {
 }
 
 // NewMiddleware returns you a new instance of the Logger middleware
-func NewMidlleware(logger *zap.Logger) mux.MiddlewareFunc {
+func NewMidlleware(logger *zap.Logger, config dependency.ConfigGetter) mux.MiddlewareFunc {
 	return func(handler http.Handler) http.Handler {
 		return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
 			fields := []zap.Field{
@@ -41,7 +43,7 @@ func NewMidlleware(logger *zap.Logger) mux.MiddlewareFunc {
 				zap.String("protocol", r.Proto),
 				zap.Int64("request.content-length", r.ContentLength),
 			}
-			fields = append(fields, requestHeaders(r)...)
+			fields = append(fields, requestHeaders(r, config.GetStringSlice("excluded-headers"))...)
 			fields = append(fields, queryParams(r)...)
 			responseLogger := NewResponseLogger(rw)
 			handler.ServeHTTP(responseLogger, r)
@@ -73,9 +75,17 @@ func responseHeaders(headers http.Header) []zap.Field {
 	return fields
 }
 
-func requestHeaders(r *http.Request) []zap.Field {
+func requestHeaders(r *http.Request, excludedHeaders []string) []zap.Field {
+	headers := map[string]struct{}{}
+	for _, header := range excludedHeaders {
+		headers[header] = struct{}{}
+	}
 	fields := make([]zap.Field, 0, len(r.Header))
 	for header := range r.Header {
+		_, ok := headers[header]
+		if ok {
+			continue
+		}
 		headerName := fmt.Sprintf("request.header.%s", header)
 		field := zap.String(headerName, r.Header.Get(header))
 		fields = append(fields, field)
