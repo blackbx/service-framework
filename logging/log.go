@@ -24,6 +24,7 @@ var Service = dependency.Service{
 		set.String("app-version", "dev", "The version of the application being configured")
 		set.String("environment", "test", "The environment that the application is deployed in")
 		set.String("logger", "development", "Whether to log in development mode.")
+		set.StringSlice("excluded-headers", []string{"Authorization"}, "Which headers to hide from the request log")
 	},
 	Constructor: NewLoggerFactory().Logger,
 }
