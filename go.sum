@@ -118,10 +118,14 @@ github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRW
 github.com/newrelic/go-agent/v3 v3.0.0/go.mod h1:H28zDNUC0U/b7kLoY4EFOhuth10Xu/9dchozUiOseQQ=
 github.com/newrelic/go-agent/v3 v3.2.0 h1:VyVCJYgqNCMSa5b92dcREL7fxNIobTw6DVolTWJDJJs=
 github.com/newrelic/go-agent/v3 v3.2.0/go.mod h1:H28zDNUC0U/b7kLoY4EFOhuth10Xu/9dchozUiOseQQ=
+github.com/newrelic/go-agent/v3 v3.3.0 h1:qcdu8gEsvRWCaKIN35Fr7sdwl7fk/DyVw2r1anYcUgM=
+github.com/newrelic/go-agent/v3 v3.3.0/go.mod h1:H28zDNUC0U/b7kLoY4EFOhuth10Xu/9dchozUiOseQQ=
 github.com/newrelic/go-agent/v3/integrations/nrgorilla v1.1.0 h1:3RDWj/QcU5CBP0lJnkh4CwK7tIxsSH53C+GPo5OGFCE=
 github.com/newrelic/go-agent/v3/integrations/nrgorilla v1.1.0/go.mod h1:1XnCVdRSKjS5ikMycFh7VKXBkk0oYPaKQb+sd6aSCoA=
 github.com/newrelic/go-agent/v3/integrations/nrpq v1.0.0 h1:2Sba4Gz3N+a9ZffWzzwwaLh2z+JQxR3mK4I0QxNlihE=
 github.com/newrelic/go-agent/v3/integrations/nrpq v1.0.0/go.mod h1:CNxLLlhPKxR/1vDVBDI4n/pwSdt9LWiK3GeTBIOheY8=
+github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.0 h1:GjYGNdVtATJvq13CB08w6DUvlDXIoClGPLn3CVvTuxo=
+github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.0/go.mod h1:UvI7Z0Dok/36E44UiTysh9HQZudDdpiChbe3+eqSB0I=
 github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0 h1:omBtnzG57tIsmqTq0MDdIOkvlVPQ3Tik1OElsirMTZA=
 github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0/go.mod h1:XEnrTsgNMzPOdBmh87lnKS+kZS2bc0vWSvPtMz8NdDA=
 github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.0 h1:dgrMps2J8bWPH9JdA8K6skqPvBbjMieQIXg1JGt0VFs=
