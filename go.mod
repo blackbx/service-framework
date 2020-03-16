@@ -25,7 +25,7 @@ require (
 	github.com/spf13/viper v1.6.2
 	go.uber.org/atomic v1.6.0
 	go.uber.org/fx v1.10.0
-	go.uber.org/zap v1.14.0
+	go.uber.org/zap v1.14.1
 	golang.org/x/lint v0.0.0-20191125180803-fdd1cda4f05f // indirect
 	golang.org/x/sys v0.0.0-20200122134326-e047566fdf82 // indirect
 	golang.org/x/tools v0.0.0-20200130002326-2f3ba24bd6e7 // indirect
