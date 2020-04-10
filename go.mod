@@ -22,7 +22,7 @@ require (
 	github.com/spf13/cobra v0.0.7
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5
-	github.com/spf13/viper v1.6.2
+	github.com/spf13/viper v1.6.3
 	go.uber.org/atomic v1.6.0
 	go.uber.org/fx v1.11.0
 	go.uber.org/zap v1.14.1
