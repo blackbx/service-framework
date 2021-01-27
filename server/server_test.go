@@ -81,10 +81,10 @@ func TestInvoke(t *testing.T) {
 	}
 
 	if serveCalled.Load() != 1 {
-		t.Fatalf("expected serve to be called once, it was called (%d) times", serveCalled)
+		t.Fatalf("expected serve to be called once, it was called (%s) times", serveCalled)
 	}
 	if shutdownCalled.Load() != 1 {
-		t.Fatalf("expected shutdown to be called once, called (%d) times", shutdownCalled)
+		t.Fatalf("expected shutdown to be called once, called (%s) times", shutdownCalled)
 	}
 }
 
