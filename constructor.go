@@ -1,6 +1,7 @@
 package framework
 
 import (
+	"github.com/BlackBX/service-framework/awscfg"
 	"github.com/BlackBX/service-framework/config"
 	"github.com/BlackBX/service-framework/dependency"
 	"github.com/BlackBX/service-framework/health"
@@ -12,6 +13,7 @@ import (
 	"github.com/BlackBX/service-framework/response"
 	"github.com/BlackBX/service-framework/router"
 	"github.com/BlackBX/service-framework/server"
+	"github.com/BlackBX/service-framework/sqs"
 	"github.com/spf13/cobra"
 )
 
@@ -30,4 +32,17 @@ func NewWebApplicationBuilder(command *cobra.Command) dependency.Builder {
 		WithService(redis.Service).
 		WithService(httpclient.Service).
 		WithService(server.Service)
+}
+
+// NewQueueApplicationBuilder will create a dependency.Builder that will
+// read from SQS Queues
+func NewQueueApplicationBuilder(command *cobra.Command) dependency.Builder {
+	return dependency.
+		NewBuilder(command).
+		WithService(newrelic.Service).
+		WithService(config.Service).
+		WithService(logging.Service).
+		WithService(httpclient.Service).
+		WithService(awscfg.Service).
+		WithService(sqs.Service)
 }

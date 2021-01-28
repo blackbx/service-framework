@@ -1,0 +1,12 @@
+Local:
+  Host: aws
+  Port: 4100
+  Region: eu-west-1
+  AccountId: "123456789012"
+  LogToFile: false
+  LogFile: .st/goaws_messages.log
+  QueueAttributeDefaults:
+    VisibilityTimeout: 30
+    ReceiveMessageWaitTimeSeconds: 0
+  Queues:
+    - Name: example-queue

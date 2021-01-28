@@ -3,6 +3,8 @@ module github.com/BlackBX/service-framework
 go 1.13
 
 require (
+	github.com/AlekSi/pointer v1.1.0
+	github.com/NYTimes/gizmo v1.3.6
 	github.com/NYTimes/gziphandler v1.1.1
 	github.com/go-redis/redis/v7 v7.4.0
 	github.com/gorilla/handlers v1.5.1
@@ -26,10 +28,6 @@ require (
 	go.uber.org/atomic v1.7.0
 	go.uber.org/fx v1.13.1
 	go.uber.org/zap v1.16.0
-	golang.org/x/lint v0.0.0-20191125180803-fdd1cda4f05f // indirect
-	golang.org/x/sys v0.0.0-20200122134326-e047566fdf82 // indirect
-	golang.org/x/tools v0.0.0-20200130002326-2f3ba24bd6e7 // indirect
 	gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0 // indirect
 	gopkg.in/ini.v1 v1.51.1 // indirect
-	gopkg.in/yaml.v2 v2.2.7 // indirect
 )
