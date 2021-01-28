@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/BlackBX/service-framework/example/cmd/serve"
+	"github.com/BlackBX/service-framework/example/server/cmd/serve"
 	"github.com/spf13/cobra"
 )
 

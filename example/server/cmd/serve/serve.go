@@ -3,7 +3,7 @@ package serve
 import (
 	framework "github.com/BlackBX/service-framework"
 	"github.com/BlackBX/service-framework/dependency"
-	"github.com/BlackBX/service-framework/example/internal/test"
+	"github.com/BlackBX/service-framework/example/server/internal/test"
 	"github.com/BlackBX/service-framework/middleware"
 	"github.com/spf13/cobra"
 )
