@@ -59,12 +59,19 @@ func (b Builder) WithService(service Service) Builder {
 		b.Options = append(b.Options, service.Dependencies)
 	}
 	if service.ConfigFunc != nil {
-		service.ConfigFunc(b.Cmd.PersistentFlags())
+		b = b.RegisterConfig(service.ConfigFunc)
 	}
 	if service.InvokeFunc == nil {
 		return b
 	}
 	return b.WithInvoke(service.InvokeFunc)
+}
+
+// RegisterConfig will register the given config with the *cobra.Command held
+// by the Builder
+func (b Builder) RegisterConfig(registerer ConfigRegisterer) Builder {
+	registerer(b.Cmd.PersistentFlags())
+	return b
 }
 
 // WithModule adds an fx.Option into the list of dependencies to be built, used for adding
