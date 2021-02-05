@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"time"
@@ -74,7 +75,7 @@ func StartServer(server Server, logger *zap.Logger) func(ctx context.Context) er
 	return func(ctx context.Context) error {
 		logger.Info("Starting HTTP Server")
 		go func() {
-			if err := server.ListenAndServe(); err != nil {
+			if err := server.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 				logger.Error("Could not start Server", zap.Error(err))
 			}
 		}()
