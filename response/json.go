@@ -38,6 +38,7 @@ type JSONResponder struct {
 func (r JSONResponder) RespondWithProblem(statusCode int, detail string) {
 	problem := NewHTTPProblem(statusCode, detail)
 	r.responseWriter.WriteHeader(statusCode)
+	r.request.Header.Set("Content-Type", "application/problem+json")
 	if err := r.Encoder.Encode(problem); err != nil {
 		r.logger.Error("Could not respond with problem", zap.Any("value", problem))
 	}
@@ -46,6 +47,7 @@ func (r JSONResponder) RespondWithProblem(statusCode int, detail string) {
 // Respond will take a given struct and respond with it as the body
 func (r JSONResponder) Respond(statusCode int, value interface{}) {
 	r.responseWriter.WriteHeader(statusCode)
+	r.request.Header.Set("Content-Type", contentTypeForValue(value))
 	if err := r.Encoder.Encode(value); err != nil {
 		r.logger.Error("Could not respond with value", zap.Any("value", value))
 	}
@@ -54,9 +56,19 @@ func (r JSONResponder) Respond(statusCode int, value interface{}) {
 // RespondStream will stream a response of JSON values to the client
 func (r JSONResponder) RespondStream(statusCode int, valueStream <-chan interface{}) {
 	r.responseWriter.WriteHeader(statusCode)
+	r.request.Header.Set("Content-Type", "application/json")
 	for value := range valueStream {
 		if err := r.Encoder.Encode(value); err != nil {
 			r.logger.Error("Could not respond with value stream", zap.Any("value", value))
 		}
+	}
+}
+
+func contentTypeForValue(value interface{}) string {
+	switch value.(type) {
+	case Problem, *Problem:
+		return "application/problem+json"
+	default:
+		return "application/json"
 	}
 }
