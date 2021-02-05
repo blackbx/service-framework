@@ -64,8 +64,8 @@ func TestResponderFactory_Responder(t *testing.T) {
 		RespondWithProblem(http.StatusBadRequest, "Hello, World!")
 
 	expectedProblem := response.NewHTTPProblem(http.StatusBadRequest, "Hello, World!")
-	gotProblem := response.Problem{}
-	if err := json.NewDecoder(resp.Body).Decode(&gotProblem); err != nil {
+	gotProblem := &response.Problem{}
+	if err := json.NewDecoder(resp.Body).Decode(gotProblem); err != nil {
 		t.Fatalf("expected no error, got (%s)", err)
 	}
 
