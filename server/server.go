@@ -16,7 +16,7 @@ import (
 // nolint: gomnd
 var Service = dependency.Service{
 	ConfigFunc: func(flags dependency.FlagSet) {
-		flags.String("server-host", "127.0.0.1", "The IP to start on")
+		flags.String("server-host", "0.0.0.0", "The IP to start on")
 		flags.Int("server-port", 8080, "The port to start the web Server on")
 		flags.Duration("read-timeout", 10*time.Second, "The read timeout for the HTTP Server")
 		flags.Duration("read-header-timeout", 20*time.Second, "The read header timeout for the HTTP Server")

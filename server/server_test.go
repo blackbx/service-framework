@@ -99,7 +99,7 @@ func TestNew(t *testing.T) {
 		t.Logf(format, args...)
 	})
 	expectedServer := &http.Server{
-		Addr:              "127.0.0.1:8080",
+		Addr:              "0.0.0.0:8080",
 		Handler:           handler,
 		ReadTimeout:       10 * time.Second,
 		ReadHeaderTimeout: 20 * time.Second,
