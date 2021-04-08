@@ -10,7 +10,7 @@ require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/heptiolabs/healthcheck v0.0.0-20180807145615-6ff867650f40
-	github.com/jmoiron/sqlx v1.3.1
+	github.com/jmoiron/sqlx v1.3.3
 	github.com/newrelic/go-agent/v3 v3.10.0
 	github.com/newrelic/go-agent/v3/integrations/nrgorilla v1.1.0
 	github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.0
