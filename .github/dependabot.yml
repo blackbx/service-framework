@@ -1,0 +1,14 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: github.com/jmoiron/sqlx
+    versions:
+    - 1.3.3
+  - dependency-name: github.com/newrelic/go-agent/v3
+    versions:
+    - 3.11.0
