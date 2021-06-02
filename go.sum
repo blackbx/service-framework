@@ -273,6 +273,7 @@ github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0 h1:omBtnzG57tIsmq
 github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0/go.mod h1:XEnrTsgNMzPOdBmh87lnKS+kZS2bc0vWSvPtMz8NdDA=
 github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.0 h1:dgrMps2J8bWPH9JdA8K6skqPvBbjMieQIXg1JGt0VFs=
 github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.0/go.mod h1:wDJZeA0Uej7iQe+oSQz+VX9xK2NwnyCs3u0obWC5w8w=
+github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.1/go.mod h1:aHIFzFVFxtrJ4y9LJx0J5yI9cb23QJcvWwljZzBde5c=
 github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d/go.mod h1:YUTz3bUH2ZwIWBy3CJBeOBEugqcmXREj14T+iG/4k4U=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
