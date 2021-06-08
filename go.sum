@@ -269,6 +269,7 @@ github.com/newrelic/go-agent/v3/integrations/nrgorilla v1.1.0 h1:3RDWj/QcU5CBP0l
 github.com/newrelic/go-agent/v3/integrations/nrgorilla v1.1.0/go.mod h1:1XnCVdRSKjS5ikMycFh7VKXBkk0oYPaKQb+sd6aSCoA=
 github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.0 h1:GjYGNdVtATJvq13CB08w6DUvlDXIoClGPLn3CVvTuxo=
 github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.0/go.mod h1:UvI7Z0Dok/36E44UiTysh9HQZudDdpiChbe3+eqSB0I=
+github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.1/go.mod h1:UvI7Z0Dok/36E44UiTysh9HQZudDdpiChbe3+eqSB0I=
 github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0 h1:omBtnzG57tIsmqTq0MDdIOkvlVPQ3Tik1OElsirMTZA=
 github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0/go.mod h1:XEnrTsgNMzPOdBmh87lnKS+kZS2bc0vWSvPtMz8NdDA=
 github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.0 h1:dgrMps2J8bWPH9JdA8K6skqPvBbjMieQIXg1JGt0VFs=

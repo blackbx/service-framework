@@ -13,7 +13,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.3
 	github.com/newrelic/go-agent/v3 v3.11.0
 	github.com/newrelic/go-agent/v3/integrations/nrgorilla v1.1.0
-	github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.0
+	github.com/newrelic/go-agent/v3/integrations/nrpq v1.1.1
 	github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0
 	github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.1
 	github.com/pelletier/go-toml v1.6.0 // indirect
