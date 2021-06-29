@@ -27,7 +27,7 @@ require (
 	github.com/spf13/viper v1.7.1
 	go.uber.org/atomic v1.8.0
 	go.uber.org/fx v1.13.1
-	go.uber.org/zap v1.17.0
+	go.uber.org/zap v1.18.1
 	gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0 // indirect
 	gopkg.in/ini.v1 v1.51.1 // indirect
 )
