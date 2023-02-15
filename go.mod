@@ -17,8 +17,7 @@ require (
 	github.com/newrelic/go-agent/v3/integrations/nrredis-v7 v1.0.0
 	github.com/newrelic/go-agent/v3/integrations/nrzap v1.0.1
 	github.com/pelletier/go-toml v1.6.0 // indirect
-	github.com/prometheus/client_golang v1.3.0 // indirect
-	github.com/prometheus/common v0.9.1 // indirect
+	github.com/prometheus/client_golang v1.11.1 // indirect
 	github.com/spf13/afero v1.2.2 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/spf13/cobra v0.0.7
